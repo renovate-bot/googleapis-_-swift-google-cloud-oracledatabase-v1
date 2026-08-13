@@ -17,26 +17,17 @@
 import Foundation
 import GoogleCloudWkt
 
-/// The request for `CloudExadataInfrastructure.ConfigureExascale`.
-public struct ConfigureExascaleCloudExadataInfrastructureRequest: Codable, Equatable, GoogleCloudWkt
+/// Request message for getting refreshable clones for an Autonomous Database.
+public struct GetAutonomousDatabaseRefreshableClonesRequest: Codable, Equatable, GoogleCloudWkt
     ._AnyPackable,
   Sendable
 {
-  /// Required. The name of the Cloud Exadata Infrastructure in the following
-  /// format:
-  /// projects/{project}/locations/{location}/cloudExadataInfrastructures/{cloud_exadata_infrastructure}.
+  /// Required. The Autonomous Database resource whose refreshable clones are to
+  /// be listed. Format:
+  /// projects/{project}/locations/{location}/autonomousDatabases/{autonomous_database}
   public var name: Swift.String = Swift.String()
 
-  /// Required. The total storage to be allocated to Exascale in GBs.
-  public var totalStorageSizeGb: Swift.Int32 = Swift.Int32()
-
-  /// Optional. Storage size needed for VM storage on Exascale in GBs.
-  public var totalVmStorageSizeGb: Swift.Int32 = Swift.Int32()
-
-  /// Optional. An optional ID to identify the request.
-  public var requestId: Swift.String = Swift.String()
-
-  /// Initialize a new instance of `ConfigureExascaleCloudExadataInfrastructureRequest`.
+  /// Initialize a new instance of `GetAutonomousDatabaseRefreshableClonesRequest`.
   public init() {}
 
   /// Use `config` to return a new instance of this object, with some fields updated.
@@ -44,7 +35,7 @@ public struct ConfigureExascaleCloudExadataInfrastructureRequest: Codable, Equat
   /// Commonly used to initialize the value, for example:
   ///
   /// ```
-  /// let value = ConfigureExascaleCloudExadataInfrastructureRequest().with { $0.name = ... }
+  /// let value = GetAutonomousDatabaseRefreshableClonesRequest().with { $0.name = ... }
   /// ```
   public func with(_ config: (inout Self) throws -> Swift.Void) rethrows -> Self {
     var copy = self
@@ -54,7 +45,7 @@ public struct ConfigureExascaleCloudExadataInfrastructureRequest: Codable, Equat
 
   public static var _anyTypeUrl: Swift.String {
     return
-      "type.googleapis.com/google.cloud.oracledatabase.v1.ConfigureExascaleCloudExadataInfrastructureRequest"
+      "type.googleapis.com/google.cloud.oracledatabase.v1.GetAutonomousDatabaseRefreshableClonesRequest"
   }
   public init(fromAny any: GoogleCloudWkt.`Any`) throws {
     self = try GoogleCloudWkt._slowAnyDeserialize(Self.self, from: any)

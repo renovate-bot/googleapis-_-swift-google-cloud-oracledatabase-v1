@@ -17,26 +17,17 @@
 import Foundation
 import GoogleCloudWkt
 
-/// The request for `CloudExadataInfrastructure.ConfigureExascale`.
-public struct ConfigureExascaleCloudExadataInfrastructureRequest: Codable, Equatable, GoogleCloudWkt
-    ._AnyPackable,
+/// An Autonomous Database refreshable clone
+public struct AutonomousDatabaseRefreshableClone: Codable, Equatable, GoogleCloudWkt._AnyPackable,
   Sendable
 {
-  /// Required. The name of the Cloud Exadata Infrastructure in the following
-  /// format:
-  /// projects/{project}/locations/{location}/cloudExadataInfrastructures/{cloud_exadata_infrastructure}.
+  /// Output only. The GCP resource name of the Autonomous Database.
   public var name: Swift.String = Swift.String()
 
-  /// Required. The total storage to be allocated to Exascale in GBs.
-  public var totalStorageSizeGb: Swift.Int32 = Swift.Int32()
+  /// Output only. The Google Cloud region where the refreshable clone exists.
+  public var region: Swift.String = Swift.String()
 
-  /// Optional. Storage size needed for VM storage on Exascale in GBs.
-  public var totalVmStorageSizeGb: Swift.Int32 = Swift.Int32()
-
-  /// Optional. An optional ID to identify the request.
-  public var requestId: Swift.String = Swift.String()
-
-  /// Initialize a new instance of `ConfigureExascaleCloudExadataInfrastructureRequest`.
+  /// Initialize a new instance of `AutonomousDatabaseRefreshableClone`.
   public init() {}
 
   /// Use `config` to return a new instance of this object, with some fields updated.
@@ -44,7 +35,7 @@ public struct ConfigureExascaleCloudExadataInfrastructureRequest: Codable, Equat
   /// Commonly used to initialize the value, for example:
   ///
   /// ```
-  /// let value = ConfigureExascaleCloudExadataInfrastructureRequest().with { $0.name = ... }
+  /// let value = AutonomousDatabaseRefreshableClone().with { $0.name = ... }
   /// ```
   public func with(_ config: (inout Self) throws -> Swift.Void) rethrows -> Self {
     var copy = self
@@ -53,8 +44,7 @@ public struct ConfigureExascaleCloudExadataInfrastructureRequest: Codable, Equat
   }
 
   public static var _anyTypeUrl: Swift.String {
-    return
-      "type.googleapis.com/google.cloud.oracledatabase.v1.ConfigureExascaleCloudExadataInfrastructureRequest"
+    return "type.googleapis.com/google.cloud.oracledatabase.v1.AutonomousDatabaseRefreshableClone"
   }
   public init(fromAny any: GoogleCloudWkt.`Any`) throws {
     self = try GoogleCloudWkt._slowAnyDeserialize(Self.self, from: any)
